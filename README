@@ -1,1 +1,8 @@
-Webhook branch
+Webhook branch contains simple http daemon, which can process webhook requests from github
+
+It is possible to emulate webhook request by:
+
+curl -v \
+    -H 'Content-Type: application/json' \
+    -d '{"repository": {"full_name": "enp/tent"}, "ref": "refs/heads/application", "head_commit": {"id": "e78a"}}' \
+    -X POST http://127.0.0.1:18202
