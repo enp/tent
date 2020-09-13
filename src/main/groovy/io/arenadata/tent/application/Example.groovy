@@ -1,3 +1,3 @@
 package io.arenadata.tent.application
 
-println 'Example 0'
+println 'Example 1'
