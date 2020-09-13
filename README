@@ -3,3 +3,4 @@ Tent branches:
  * tool - tent tool itself
  * application - example application
  * metadata - example product metadata to pack example application by tool
+ * webhook - example daemon/script to build product/application on push
