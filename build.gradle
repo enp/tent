@@ -4,7 +4,7 @@ apply plugin: 'application'
 mainClassName = 'io.arenadata.tent.application.Example'
 
 jar {
-    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest {
         attributes 'Main-Class': mainClassName
     }
@@ -15,5 +15,5 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.+'
+    implementation 'org.codehaus.groovy:groovy-all:2.4.+'
 }
