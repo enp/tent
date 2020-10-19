@@ -1,0 +1,13 @@
+FROM centos:centos7
+
+RUN yum -y update && yum install -y curl wget git unzip java-1.8.0-openjdk-devel rpm-build && yum clean all
+
+ENV JAVA_HOME /usr/lib/jvm/java/
+
+WORKDIR /opt
+RUN wget https://apache-mirror.rbc.ru/pub/apache/ant/binaries/apache-ant-1.10.9-bin.tar.gz && tar xvzf apache-ant-1.10.9-bin.tar.gz && ln -s apache-ant-1.10.9 ant && rm -f apache-ant-1.10.9-bin.tar.gz
+RUN wget https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && tar xvzf apache-maven-3.6.3-bin.tar.gz && ln -s apache-maven-3.6.3 maven && rm -f apache-maven-3.6.3-bin.tar.gz
+RUN wget https://services.gradle.org/distributions/gradle-6.1.1-bin.zip && unzip -x -o gradle-6.1.1-bin.zip && ln -s gradle-6.1.1 gradle && rm -f gradle-6.1.1-bin.zip
+ENV PATH /opt/ant/bin:/opt/maven/bin:/opt/gradle/bin:$PATH
+
+WORKDIR /product
